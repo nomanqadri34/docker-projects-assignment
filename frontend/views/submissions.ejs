@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>All Submissions</h1>
+            <p>View all form submissions</p>
+        </header>
+
+        <nav>
+            <a href="/">Submit Form</a>
+            <a href="/submissions">View All Submissions</a>
+        </nav>
+
+        <div class="submissions-section">
+            <% if (typeof error !== 'undefined' && error) { %>
+                <div class="alert alert-error">
+                    <strong>Error:</strong> <%= error %>
+                </div>
+            <% } %>
+
+            <p class="submission-count">Total Submissions: <strong><%= count %></strong></p>
+
+            <% if (submissions.length > 0) { %>
+                <table class="submissions-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Message</th>
+                            <th>Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% submissions.forEach(submission => { %>
+                            <tr>
+                                <td><%= submission.id %></td>
+                                <td><%= submission.name %></td>
+                                <td><%= submission.email %></td>
+                                <td><%= submission.message %></td>
+                                <td><%= submission.timestamp %></td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            <% } else { %>
+                <div class="no-submissions">
+                    <p>No submissions yet. <a href="/">Submit one now!</a></p>
+                </div>
+            <% } %>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Form Submission Application. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
