@@ -121,14 +121,22 @@
         <h1>📝 To-Do List</h1>
 
         <form action="/submittodoitem" method="POST">
+            <!-- COMMIT 1: Add this Item ID field first -->
             <div class="form-group">
                 <label for="itemId">Item ID:</label>
                 <input type="text" id="itemId" name="itemId" required placeholder="Enter item ID">
             </div>
 
+            <!-- COMMIT 2: Add this Item UUID field second -->
             <div class="form-group">
                 <label for="itemUuid">Item UUID:</label>
                 <input type="text" id="itemUuid" name="itemUuid" required placeholder="Enter item UUID">
+            </div>
+
+            <!-- COMMIT 3: Add this Item Hash field third -->
+            <div class="form-group">
+                <label for="itemHash">Item Hash:</label>
+                <input type="text" id="itemHash" name="itemHash" required placeholder="Enter item hash">
             </div>
 
             <div class="form-group">
