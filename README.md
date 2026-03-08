@@ -40,21 +40,27 @@ docker-projects-assignment/
 - Node.js 18+ (for local development)
 - Python 3.9+ (for local development)
 
-## Running with Docker Compose
+## Quick Start
 
-1. **Build and start all services**:
-   ```bash
-   docker-compose up --build
-   ```
+### 1. Start Docker Desktop
+- Open Docker Desktop application
+- Wait until it's fully running (check system tray icon)
 
-2. **Access the application**:
-   - Frontend: http://localhost:3000
-   - Backend API: http://localhost:5000
+### 2. Run the Application
+```bash
+cd docker-projects-assignment
+docker-compose up --build
+```
 
-3. **Stop services**:
-   ```bash
-   docker-compose down
-   ```
+### 3. Access the Application
+- **Frontend**: http://localhost:3000
+- **Backend API**: http://localhost:5000/api/health
+
+### 4. Stop the Application
+Press `Ctrl+C`, then:
+```bash
+docker-compose down
+```
 
 ## API Endpoints
 
@@ -101,21 +107,35 @@ npm install
 npm start
 ```
 
-## Docker Hub Images
+## Push to Docker Hub
 
-Build and push images to Docker Hub:
-
+### Option 1: Use the automated script (Windows)
 ```bash
+build-and-push.bat
+```
+The script will prompt for your Docker Hub username and handle everything.
+
+### Option 2: Manual commands
+```bash
+# Login to Docker Hub
+docker login
+
 # Build images
 docker-compose build
 
-# Tag images
+# Tag images (replace YOUR_USERNAME)
 docker tag docker-projects-assignment-backend:latest YOUR_USERNAME/form-submission-backend:latest
 docker tag docker-projects-assignment-frontend:latest YOUR_USERNAME/form-submission-frontend:latest
 
 # Push to Docker Hub
 docker push YOUR_USERNAME/form-submission-backend:latest
 docker push YOUR_USERNAME/form-submission-frontend:latest
+```
+
+### Pull from Docker Hub
+```bash
+docker pull YOUR_USERNAME/form-submission-backend:latest
+docker pull YOUR_USERNAME/form-submission-frontend:latest
 ```
 
 ## Environment Variables
